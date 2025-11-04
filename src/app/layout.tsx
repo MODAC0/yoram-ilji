@@ -1,4 +1,5 @@
-import AppProvider from '@/components/AppProvider';
+import AppProvider from "@/components/AppProvider";
+import Header from "@/components/Header";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -9,7 +10,6 @@ const pretendard = localFont({
   weight: "45 920",
   variable: "--font-pretendard",
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,8 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-  <body className={pretendard.variable}>
-        <AppProvider>{children}</AppProvider>
+      <body className={pretendard.variable}>
+        <AppProvider>
+          <Header />
+          <main className="container mx-auto px-4">{children}</main>
+        </AppProvider>
       </body>
     </html>
   );

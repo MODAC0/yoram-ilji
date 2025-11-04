@@ -1,15 +1,16 @@
-import { getPublishedPosts } from '@/api/notion';
-import Table from '@/components/table';
-import Image from "next/image";
+import { getBlogPosts } from "@/api/notion";
+import Table from "@/components/table";
 
-export default async function Home() {
-  const posts = await getPublishedPosts();
-  
+export default async function HomePage() {
+  const posts = await getBlogPosts();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Table posts={posts} />
-      </main>
+    <div className="flex flex-col items-center justify-center text-center py-20">
+      <h1 className="text-5xl font-bold mb-4">안녕하세요, Yoram Ilji입니다.</h1>
+      <p className="text-xl text-gray-700 mb-8">
+        기술과 일상을 기록하는 공간입니다.
+      </p>
+      <Table posts={posts} />
     </div>
   );
 }
