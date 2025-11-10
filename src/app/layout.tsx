@@ -1,5 +1,7 @@
 import AppProvider from "@/components/AppProvider";
 import Header from "@/components/Header";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import "@ant-design/v5-patch-for-react-19";
 import type { Metadata } from "next";
 import "../assets/styles/globals.css";
 
@@ -14,15 +16,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <AppProvider>
-          <Header />
-          <main className="container mx-auto px-4 min-h-screen">
-            {children}
-          </main>
-        </AppProvider>
-      </body>
+    <html lang="ko" suppressHydrationWarning>
+      <AntdRegistry>
+        <body>
+          <AppProvider>
+            <Header />
+            <main className="container mx-auto px-4 min-h-screen">
+              {children}
+            </main>
+          </AppProvider>
+        </body>
+      </AntdRegistry>
     </html>
   );
 }
